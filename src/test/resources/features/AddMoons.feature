@@ -26,24 +26,16 @@ Feature: Add moons to the Planetarium
   Scenario Outline: Failed addition of a moon due to invalid attributes
     And the user provides Moon Name "<Moon Name>"
     And the user provides Owning Planet "<Owning Planet>"
+    And the user provides File Type moon "<File Type>"
     And the user submits the info
     Then the user should get a browser alert saying "<alert>"
     And the table should not show the added moon "<Moon Name>"
     And the user should stay on the Home page
     Examples:
-      | Moon Name                                 | Owning Planet   | alert                        |
-      | ReallyLongMoonName_1234567890123456789    |1           | Invalid moon name    |
-      | Moon                                      |66           | Invalid planet id   |
-      | ReallyLongMoonName_1234567890123456789    |66           | Invalid moon name    |
+      | Moon Name                                 | Owning Planet|File Type                  | alert                        |
+      | ReallyLongMoonName_1234567890123456789    |1             |moon.jpg                    | Invalid moon name    |
+      | Moon                                      |66            |moon.jpg                     | Invalid planet id   |
+      | ReallyLongMoonName_1234567890123456789    |66            |moon.jpg                    | Invalid moon name    |
+      |Moon2                                      |1             |Venus.gif           |Invalid file type|
 
-  Scenario Outline: Failed addition of a planet due to invalid file type
-    And the user provides Moon Name "<Moon Name>"
-    And the user provides Owning Planet "<Owning Planet>"
-    And the user provides File Type moon "<File Type>"
-    And the user submits the info
-    And the user should stay on the Home page
-    And the table should not show the added moon "<Moon Name>"
-    Examples:
-      | Moon Name    | Owning Planet   | File Type      |
-      |Moon2         |1            |Venus.gif           |
 

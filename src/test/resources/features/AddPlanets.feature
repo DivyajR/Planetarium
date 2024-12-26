@@ -13,19 +13,8 @@ Feature: Add planets to the Planetarium
     And the table should show the added planet
     And the user should stay on the Home page
 
-  Scenario Outline: Failed addition of a planet due to invalid file type
-    And the user provides Planet Name "<Planet Name>"
-    And the user provides File Type "<File Type>"
-    And the user submits the info
-    And the user should stay on the Home page
-    And the table should not show the added planet "<Planet Name>"
 
-    Examples:
-      | Planet Name | File Type      |
-      | jupiter2    | jupiter.gif    |
-      | venus       | venus.gif      |
-
-  Scenario Outline: Failed addition of a planet due to planet name
+  Scenario Outline: Failed addition of a planet
     And the user provides Planet Name "<Planet Name>"
     And the user provides File Type "<File Type>"
     And the user submits the info
@@ -39,4 +28,5 @@ Feature: Add planets to the Planetarium
       | ReallyLongPlanetName_1234567890123456789   | planet-1.jpg  |Invalid planet name     |
       | #Pluto#                                    | planet-2.jpg  |Invalid planet name     |
       | !VEnus!!!                                  | venus.gif      |Invalid planet name     |
-
+      | jupiter2                                   | jupiter.gif    |Invalid File Type       |
+      | venus                                      | venus.gif      |Invalid File Type       |

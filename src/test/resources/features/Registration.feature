@@ -26,6 +26,7 @@ Feature: User Registration
 
         Examples:
             |username                       |password                       |alert           |
+            |Batman	                        |Krypton-was_2000               |Invalid username|
             |Bane	                        |Krypton-was_2000               |Invalid username|
             |wonder_woman_for_the_DC_theming|Krypton-was_2000               |Invalid username|
             |2face	                        |Krypton-was_2000               |Invalid username|
@@ -38,11 +39,3 @@ Feature: User Registration
             |Super_man-2001	                |BATMAN1	                    |Invalid password|
             |Super_man-2001	                |Robin	                        |Invalid password|
 
-    Scenario Outline: Users can not register a new account with a username that exists
-        When    the user provides username "<username>"
-        And     the user provides password "<password>"
-        And     the user submits the credentials
-        And     the user should stay on the registration page
-        Examples:
-            |username                       |password                       |
-            |Batman	                        |Krypton-was_2000               |

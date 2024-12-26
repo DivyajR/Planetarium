@@ -26,6 +26,14 @@ public class DeletePlanetsSteps {
         boolean planetFound = TestRunner.homePage.isPlanetInTable(planetNameToCheck);
         Assert.assertFalse("Planet was found in the table", planetFound);
     }
+    @Then("the moon associated with the planet should be removed")
+    public void the_moon_associated_with_the_planet_should_be_removed() {
+        String moonNameToCheck = "Luna";
+        boolean moonFound = TestRunner.homePage.isMoonInTable(moonNameToCheck);
+        Assert.assertFalse("Moon was found in the table", moonFound);
+    }
+
+
 
     @When("the user provides Planet Name {string} to delete")
     public void the_user_provides_Planet_Name_to_delete(String string) {

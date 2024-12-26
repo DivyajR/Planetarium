@@ -11,6 +11,7 @@ Feature: Remove planets from the Planetarium
     And the user clicks the delete button
     Then the table should refresh
     And the planet should be removed
+    And the moon associated with the planet should be removed
     And the user should stay on the Home page
 
   Scenario Outline: Failed removal due to invalid Planet name
