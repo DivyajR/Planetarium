@@ -10,7 +10,7 @@ Feature: User login and logout
     And the user submits the credentials
     Then the user should be redirected to the home page
     Examples:
-      | username  | password         |
+      | username  | password          |
       | Batman    | Iamthenight1939   |
 
   Scenario: Successful logout
@@ -26,7 +26,7 @@ Feature: User login and logout
     Then the user should get a browser alert saying "<expected_result>"
     And the user should stay on the login page
     Examples:
-      | username  | password         | expected_result              |
-      | Batman    | b0Ts             | Invalid credentials   |
-      | Robin     | Iamthenight1939   | Invalid credentials   |
-      | Robin     | b0Ts             | Invalid credentials   |
+      | username | password          | expected_result       |
+      | Batman   | b0Ts              | Invalid credentials   |
+      | Robin    | Iamthenight1939   | Invalid credentials   |
+      | Robin    | b0Ts              | Invalid credentials   |

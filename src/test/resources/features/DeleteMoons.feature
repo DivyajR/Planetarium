@@ -18,6 +18,8 @@ Feature: Remove moons from the Planetarium
     Then the user should get a browser alert saying "Invalid moon name"
     And the user should stay on the Home page
     Examples:
-      |Moon Name|
-      |LUNAR      |
+      |Moon Name |
+      |LUNAR     |
       |!!!MOON?  |
+      |@mmmmm    |
+      |Earth     |

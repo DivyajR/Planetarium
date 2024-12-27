@@ -18,15 +18,8 @@ public class AddPlanetsSteps {
         homePage.selectType("planet");
     }
 
-    @When("the user provides a valid name")
-    public void the_user_provides_a_valid_name() {
-        homePage.enterPlanetName("jupiter");
-    }
 
-    @When("the user provides a valid file type")
-    public void the_user_provides_a_valid_file_type() {
-        homePage.uploadPlanetImage("C:\\Users\\drija\\Desktop\\Revature\\Example-Test-Suite\\src\\test\\resources\\Celestial-Images\\jupiter.jpg");
-    }
+
 
 
     @When("the user provides Planet Name {string}")
@@ -39,17 +32,18 @@ public class AddPlanetsSteps {
         homePage.uploadPlanetImage("C:\\Users\\drija\\Desktop\\Revature\\Example-Test-Suite\\src\\test\\resources\\Celestial-Images\\" + string);
     }
 
-    @When("the table should show the added planet")
-    public void the_table_should_show_the_added_planet() {
+
+    @Then("the table should show the added planet {string}")
+    public void the_table_should_show_the_added_planet(String string) {
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("celestialTable")));
-        String planetNameToCheck = "jupiter";
+        String planetNameToCheck = string;
         boolean isPlanetPresent = homePage.isPlanetInTable(planetNameToCheck);
         Assert.assertTrue("The table does not show the added planet: " + planetNameToCheck, isPlanetPresent);
 
     }
 
 
-    @When("the table should not show the added planet {string}")
+    @Then("the table should not show the added planet {string}")
     public void the_table_should_not_show_the_added_planet(String string) {
         String planetNameToCheck = string;
         boolean planetFound = TestRunner.homePage.isPlanetInTable(planetNameToCheck);

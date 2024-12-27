@@ -23,3 +23,4 @@ Feature: Remove planets from the Planetarium
     |Planet Name|
     |Pluto      |
     |!!!Venus?  |
+    |Luna       |

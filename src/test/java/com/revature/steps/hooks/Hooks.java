@@ -32,9 +32,8 @@ public class Hooks {
         }
     }
 
-    @After("@view")
+    @After
     public void logoutAfterCelestialFeature() {
-        // Only attempt to logout if the logout button is visible
         if (TestRunner.homePage.isLogoutButtonVisible()) {
             TestRunner.homePage.logout();
         } else {

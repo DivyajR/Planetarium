@@ -2,10 +2,14 @@ package com.revature.steps;
 
 import com.revature.TestRunner;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static com.revature.TestRunner.homePage;
+import static com.revature.TestRunner.wait;
 
 public class AddMoonsSteps {
     @When("the user selects to add a Moon")
@@ -46,13 +50,15 @@ public class AddMoonsSteps {
 
     @When("the table should show the added moon")
     public void the_table_should_show_the_added_moon() {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("celestialTable")));
         String MoonNameToCheck = "Moon2";
         boolean moonFound = TestRunner.homePage.isMoonInTable(MoonNameToCheck);
         Assert.assertTrue("Moon was not found in the table", moonFound);
     }
 
-    @When("the table should show the added moon {string}")
+    @Then("the table should show the added moon {string}")
     public void the_table_should_show_the_added_moon(String string) {
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("celestialTable")));
         String MoonNameToCheck = string;
         boolean moonFound = TestRunner.homePage.isMoonInTable(MoonNameToCheck);
         Assert.assertTrue("Moon was not found in the table", moonFound);
